@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Feliz Mêsversário Amor da minha vida</title>
+<style>
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(270deg, #f6d1e9, #b2c9f7, #f6d1e9, #b2c9f7);
+    background-size: 800% 800%;
+    animation: bgShift 25s ease infinite;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 0;
+  }
+  @keyframes bgShift {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+
+  @keyframes fall {
+    0% { top: -50px; opacity: 0; transform: scale(0.5);}
+    20% { opacity: 1;}
+    100% { top: 110vh; opacity: 0; transform: scale(1.2);}
+  }
+
+  .heart, .flower {
+    position: fixed;
+    font-size: 3.5rem;
+    user-select: none;
+    pointer-events: none;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.2));
+    animation: fall 5s linear infinite;
+    z-index: 5;
+  }
+
+  /* Corações */
+  .heart {
+    color: rgba(255, 0, 127, 1);
+    filter: drop-shadow(0 0 3px rgba(255, 0, 127, 0.8));
+  }
+  .heart.left { left: 5%; animation-delay: 0s; }
+  .heart.left-2 { left: 10%; animation-delay: 1s; }
+  .heart.center-left { left: 20%; animation-delay: 1.5s; }
+  .heart.center { left: 50%; animation-delay: 2s; }
+  .heart.center-2 { left: 55%; animation-delay: 2.5s; }
+  .heart.center-right { right: 20%; animation-delay: 3s; }
+  .heart.right { right: 10%; animation-delay: 3.5s; }
+  .heart.right-2 { right: 5%; animation-delay: 4s; }
+
+  /* Flores */
+  .flower {
+    font-size: 3rem;
+    filter: drop-shadow(0 0 2px rgba(214, 51, 108, 0.8));
+    animation-duration: 6s;
+  }
+  .flower.left { left: 15%; animation-delay: 0.5s; }
+  .flower.left-2 { left: 25%; animation-delay: 1.2s; }
+  .flower.center-left { left: 35%; animation-delay: 1.7s; }
+  .flower.center { left: 65%; animation-delay: 2.3s; }
+  .flower.center-2 { left: 70%; animation-delay: 3s; }
+  .flower.right { right: 15%; animation-delay: 3.7s; }
+  .flower.right-2 { right: 10%; animation-delay: 4.2s; }
+
+  /* Coração SVG vermelho mais detalhado */
+  .heart.svg-heart {
+    right: 50%;
+    top: 0;
+    animation: fall 4s linear infinite;
+    filter: drop-shadow(0 0 4px #E63946);
+    width: 40px;
+    height: 36px;
+    font-size: 0;
+    pointer-events: none;
+    user-select: none;
+    animation-delay: 2s;
+    z-index: 5;
+  }
+
+  /* Estilos carta e conteúdo */
+  #carta, #conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    background: rgba(255 255 255 / 0.85);
+    border-radius: 20px;
+    margin: 20px auto;  /* centraliza horizontalmente */
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    max-width: 600px;   /* largura máxima menor */
+    box-sizing: border-box;
+  }
+  #carta h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  #carta p {
+    font-size: 1.2em;
+    max-width: 600px;
+    line-height: 1.6em;
+    margin-bottom: 30px;
+    color: #222;
+  }
+  #carta button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    background-color: #0077cc;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  #carta button:hover {
+    background-color: #005fa3;
+  }
+
+  #conteudo {
+    display: none;
+  }
+
+  #conteudo h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    color: #d63384;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    word-break: break-word;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  #conteudo p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 30px;
+    padding: 0 10px;
+  }
+
+  .rosa-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 40px;
+  }
+  .petala {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('rosa.png');
+    background-size: cover;
+    opacity: 0;
+    transform: scale(0.2);
+    animation: abrirPetala 1s forwards;
+  }
+  .petala:nth-child(1) { animation-delay: 0.2s; }
+  .petala:nth-child(2) { animation-delay: 0.6s; }
+  .petala:nth-child(3) { animation-delay: 1s; }
+  .petala:nth-child(4) { animation-delay: 1.4s; }
+
+  @keyframes abrirPetala {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .fotos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  .fotos img {
+    flex: 1 1 150px;
+    max-width: 200px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    min-width: 120px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Corações -->
+<div class="heart left">💖</div>
+<div class="heart center-left">💖</div>
+<div class="heart center-right">💖</div>
+<div class="heart right">💖</div>
+<div class="heart left-2">💖</div>
+<div class="heart right-2">💖</div>
+<div class="heart center">💖</div>
+<div class="heart center-2">💖</div>
+
+<!-- Flores com emojis variados -->
+<div class="flower left">🌸</div>
+<div class="flower left-2">🌺</div>
+<div class="flower center-left">🌷</div>
+<div class="flower center">🌼</div>
+<div class="flower center-2">🌻</div>
+<div class="flower right">🌸</div>
+<div class="flower right-2">🌺</div>
+
+<!-- Coração SVG vermelho mais detalhado -->
+<div class="heart svg-heart">
+  <svg width="40" height="36" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#E63946" stroke="#B22222" stroke-width="1" d="M12 21s-8-7.333-8-12a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.667-8 12-8 12z"/>
+    <animate attributeName="fill" values="#E63946;#FF0000;#E63946" dur="2s" repeatCount="indefinite"/>
+  </svg>
+</div>
+
+<!-- CARTA INICIAL -->
+<div id="carta">
+  <h2>Para minha rainha e mãe dos meus filhos</h2>
+  <p>
+    Amor da minha vida,<br /><br />
+    Há 1 ano e 1 mês, você entrou na minha vida como a rosa mais rara do jardim. Desde então, tudo floresceu.<br />
+    Obrigado por cada sorriso, cada abraço, cada detalhe.<br /><br />
+    Hoje, celebro não só nosso tempo juntos, mas tudo que ainda vamos viver.<br />
+    Eu te amo infinitamente! 💙<br /><br />
+    — Piculicutico
+  </p>
+  <button onclick="mostrarSite()">Abrir minha homenagem 🌹</button>
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="conteudo">
+  <h1>🌹 Feliz 1 ano e 1 mês amor da minha vida 🌹</h1>
+  <p>Eu não podia deixar de te dar sua flor mesmo virtualmente. 💙</p>
+  <div class="rosa-container">
+    <div class="petala"></div>
+    <div class="petala"></div>
+    <div class="petala"></div>
+    <div class="petala"></div>
+  </div>
+
+  <div class="fotos">
+    <img src="foto1.jpg" alt="Foto 1" />
+    <img src="foto2.jpg" alt="Foto 2" />
+    <img src="foto3.jpg" alt="Foto 3" />
+    <img src="foto4.jpg" alt="Foto 4" />
+  </div>
+</div>
+
+<!-- TRILHA SONORA -->
+<audio id="musica" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio HTML.
+</audio>
+
+<script>
+function mostrarSite() {
+  document.getElementById("carta").style.display = "none";
+  const conteudo = document.getElementById("conteudo");
+  conteudo.style.display = "flex";
+
+  // Tocar música
+  const audio = document.getElementById("musica");
+  audio.play().catch(e => {
+    console.log("Erro ao tentar tocar audio:", e);
+  });
+}
+</script>
+
+</body>
+</html>
