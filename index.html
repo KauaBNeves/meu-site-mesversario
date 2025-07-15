@@ -3,249 +3,300 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Feliz Mêsversário Amor da minha vida</title>
+<title>Feliz Mêsversário</title>
 <style>
   body {
     margin: 0; padding: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(270deg, #f6d1e9, #b2c9f7, #f6d1e9, #b2c9f7);
+    background: linear-gradient(270deg,#f6d1e9,#b2c9f7);
     background-size: 800% 800%;
     animation: bgShift 25s ease infinite;
     overflow-x: hidden;
     position: relative;
-    z-index: 0;
   }
   @keyframes bgShift {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
+    0% { background-position: 0 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0 50% }
   }
 
-  @keyframes fall {
-    0% { top: -50px; opacity: 0; transform: scale(0.5);}
-    20% { opacity: 1;}
-    100% { top: 110vh; opacity: 0; transform: scale(1.2);}
-  }
-
-  .heart, .flower {
+  /* Camada para emojis caindo */
+  .falling-emojis {
+    pointer-events: none; /* para não atrapalhar cliques */
     position: fixed;
-    font-size: 3.5rem;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+  /* Cada emoji */
+  .falling-emojis span {
+    position: absolute;
+    top: -2em;
+    font-size: 1.5em;
+    opacity: 0.8;
+    animation-name: fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
     user-select: none;
-    pointer-events: none;
-    filter: drop-shadow(0 0 2px rgba(0,0,0,0.2));
-    animation: fall 5s linear infinite;
-    z-index: 5;
+  }
+  /* Animação de queda */
+  @keyframes fall {
+    0% {
+      transform: translateY(-2em) rotate(0deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
   }
 
-  /* Corações */
-  .heart {
-    color: rgba(255, 0, 127, 1);
-    filter: drop-shadow(0 0 3px rgba(255, 0, 127, 0.8));
+  /* Variações de tempo, posição, tamanho, duração */
+  .falling-emojis span:nth-child(1) {
+    left: 5%; animation-duration: 15s; animation-delay: 0s; font-size: 2em;
   }
-  .heart.left { left: 5%; animation-delay: 0s; }
-  .heart.left-2 { left: 10%; animation-delay: 1s; }
-  .heart.center-left { left: 20%; animation-delay: 1.5s; }
-  .heart.center { left: 50%; animation-delay: 2s; }
-  .heart.center-2 { left: 55%; animation-delay: 2.5s; }
-  .heart.center-right { right: 20%; animation-delay: 3s; }
-  .heart.right { right: 10%; animation-delay: 3.5s; }
-  .heart.right-2 { right: 5%; animation-delay: 4s; }
-
-  /* Flores */
-  .flower {
-    font-size: 3rem;
-    filter: drop-shadow(0 0 2px rgba(214, 51, 108, 0.8));
-    animation-duration: 6s;
+  .falling-emojis span:nth-child(2) {
+    left: 15%; animation-duration: 12s; animation-delay: 2s; font-size: 1.5em;
   }
-  .flower.left { left: 15%; animation-delay: 0.5s; }
-  .flower.left-2 { left: 25%; animation-delay: 1.2s; }
-  .flower.center-left { left: 35%; animation-delay: 1.7s; }
-  .flower.center { left: 65%; animation-delay: 2.3s; }
-  .flower.center-2 { left: 70%; animation-delay: 3s; }
-  .flower.right { right: 15%; animation-delay: 3.7s; }
-  .flower.right-2 { right: 10%; animation-delay: 4.2s; }
-
-  /* Coração SVG vermelho mais detalhado */
-  .heart.svg-heart {
-    right: 50%;
-    top: 0;
-    animation: fall 4s linear infinite;
-    filter: drop-shadow(0 0 4px #E63946);
-    width: 40px;
-    height: 36px;
-    font-size: 0;
-    pointer-events: none;
-    user-select: none;
-    animation-delay: 2s;
-    z-index: 5;
+  .falling-emojis span:nth-child(3) {
+    left: 25%; animation-duration: 18s; animation-delay: 4s; font-size: 1.8em;
+  }
+  .falling-emojis span:nth-child(4) {
+    left: 35%; animation-duration: 14s; animation-delay: 1s; font-size: 1.6em;
+  }
+  .falling-emojis span:nth-child(5) {
+    left: 45%; animation-duration: 16s; animation-delay: 3.5s; font-size: 2em;
+  }
+  .falling-emojis span:nth-child(6) {
+    left: 55%; animation-duration: 13s; animation-delay: 5s; font-size: 1.7em;
+  }
+  .falling-emojis span:nth-child(7) {
+    left: 65%; animation-duration: 17s; animation-delay: 2.5s; font-size: 1.9em;
+  }
+  .falling-emojis span:nth-child(8) {
+    left: 75%; animation-duration: 15s; animation-delay: 0.5s; font-size: 1.4em;
+  }
+  .falling-emojis span:nth-child(9) {
+    left: 85%; animation-duration: 16s; animation-delay: 4.5s; font-size: 2.1em;
+  }
+  .falling-emojis span:nth-child(10) {
+    left: 95%; animation-duration: 14s; animation-delay: 3s; font-size: 1.6em;
+  }
+  .falling-emojis span:nth-child(11) {
+    left: 10%; animation-duration: 15s; animation-delay: 1.8s; font-size: 1.7em;
+  }
+  .falling-emojis span:nth-child(12) {
+    left: 20%; animation-duration: 13s; animation-delay: 2.2s; font-size: 1.8em;
+  }
+  .falling-emojis span:nth-child(13) {
+    left: 30%; animation-duration: 17s; animation-delay: 4.2s; font-size: 2em;
+  }
+  .falling-emojis span:nth-child(14) {
+    left: 40%; animation-duration: 16s; animation-delay: 0.8s; font-size: 1.5em;
+  }
+  .falling-emojis span:nth-child(15) {
+    left: 50%; animation-duration: 18s; animation-delay: 3.1s; font-size: 1.9em;
+  }
+  .falling-emojis span:nth-child(16) {
+    left: 60%; animation-duration: 15s; animation-delay: 1.3s; font-size: 1.4em;
+  }
+  .falling-emojis span:nth-child(17) {
+    left: 70%; animation-duration: 14s; animation-delay: 2.7s; font-size: 2em;
+  }
+  .falling-emojis span:nth-child(18) {
+    left: 80%; animation-duration: 16s; animation-delay: 0.3s; font-size: 1.6em;
+  }
+  .falling-emojis span:nth-child(19) {
+    left: 90%; animation-duration: 13s; animation-delay: 4.9s; font-size: 1.7em;
+  }
+  .falling-emojis span:nth-child(20) {
+    left: 100%; animation-duration: 15s; animation-delay: 2.8s; font-size: 1.5em;
   }
 
-  /* Estilos carta e conteúdo */
-  #carta, #conteudo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-    padding: 20px;
+  /* container e conteúdo com z-index maior para ficar na frente */
+  .container {
     position: relative;
-    z-index: 10;
-    background: rgba(255 255 255 / 0.85);
+    max-width: 700px;
+    margin: 30px auto;
+    background: rgba(255,255,255,0.7); /* Aqui a transparência para mostrar o fundo */
     border-radius: 20px;
-    margin: 20px auto;  /* centraliza horizontalmente */
-    box-shadow: 0 0 15px rgba(0,0,0,0.15);
-    max-width: 600px;   /* largura máxima menor */
-    box-sizing: border-box;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,.1);
+    z-index: 1;
   }
-  #carta h2 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  #carta p {
-    font-size: 1.2em;
-    max-width: 600px;
-    line-height: 1.6em;
-    margin-bottom: 30px;
-    color: #222;
-  }
-  #carta button {
-    padding: 10px 20px;
+
+  h1, h2 { color: #d63384; }
+
+  button {
+    padding: 12px 24px;
     font-size: 1em;
     border: none;
-    background-color: #0077cc;
-    color: white;
     border-radius: 10px;
+    margin-top: 20px;
+    background: #0077cc;
+    color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
   }
-  #carta button:hover {
-    background-color: #005fa3;
-  }
-
-  #conteudo {
-    display: none;
-  }
-
-  #conteudo h1 {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
-    color: #d63384;
-    margin-bottom: 20px;
-    padding: 0 10px;
-    word-break: break-word;
-    box-sizing: border-box;
-    max-width: 100%;
-  }
-
-  #conteudo p {
-    font-size: 1.2em;
-    color: #333;
-    margin-bottom: 30px;
-    padding: 0 10px;
-  }
+  button:hover { background: #005fa3; }
 
   .rosa-container {
     position: relative;
     width: 200px;
     height: 200px;
-    margin-bottom: 40px;
+    margin: 30px auto;
   }
-  .petala {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: url('rosa.png');
-    background-size: cover;
-    opacity: 0;
-    transform: scale(0.2);
-    animation: abrirPetala 1s forwards;
-  }
-  .petala:nth-child(1) { animation-delay: 0.2s; }
-  .petala:nth-child(2) { animation-delay: 0.6s; }
-  .petala:nth-child(3) { animation-delay: 1s; }
-  .petala:nth-child(4) { animation-delay: 1.4s; }
 
-  @keyframes abrirPetala {
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
+  .petala {
+    position: absolute; inset: 0;
+    background: url('rosa.png') center/cover;
+    opacity: 0; transform: scale(0.2);
+    animation: abrir 1s forwards;
+  }
+  .petala:nth-child(1) { animation-delay: .2s }
+  .petala:nth-child(2) { animation-delay: .6s }
+  .petala:nth-child(3) { animation-delay: 1s }
+  .petala:nth-child(4) { animation-delay: 1.4s }
+
+  @keyframes abrir {
+    to { opacity: 1; transform: scale(1); }
   }
 
   .fotos {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 15px;
-    width: 100%;
-    max-width: 600px;
-    padding: 0 10px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
+    justify-content: center;
+    margin-top: 20px;
   }
-
   .fotos img {
-    flex: 1 1 150px;
+    width: 45%;
     max-width: 200px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    box-sizing: border-box;
-    min-width: 120px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.15);
   }
 
+  #puzzle {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    width: 320px;
+    margin: 20px auto 0;
+  }
+  #puzzle img {
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,.15);
+  }
+
+  #conteudo, #quebra {
+    display: none;
+  }
+
+  /* ——— overlay final ——— */
+#finalOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8); /* mais transparente para mostrar fundo */
+  z-index: 9999;
+  text-align: center;
+  padding-top: 100px;
+}
+
+
+  #finalOverlay h1 {
+    color: #d63384;
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+
+  .rosa-nova-final {
+    width: 150px;
+    animation: aparecer 1.5s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.6);
+    margin-top: 20px;
+  }
+
+  @keyframes aparecer {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 </style>
 </head>
 <body>
 
-<!-- Corações -->
-<div class="heart left">💖</div>
-<div class="heart center-left">💖</div>
-<div class="heart center-right">💖</div>
-<div class="heart right">💖</div>
-<div class="heart left-2">💖</div>
-<div class="heart right-2">💖</div>
-<div class="heart center">💖</div>
-<div class="heart center-2">💖</div>
-
-<!-- Flores com emojis variados -->
-<div class="flower left">🌸</div>
-<div class="flower left-2">🌺</div>
-<div class="flower center-left">🌷</div>
-<div class="flower center">🌼</div>
-<div class="flower center-2">🌻</div>
-<div class="flower right">🌸</div>
-<div class="flower right-2">🌺</div>
-
-<!-- Coração SVG vermelho mais detalhado -->
-<div class="heart svg-heart">
-  <svg width="40" height="36" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#E63946" stroke="#B22222" stroke-width="1" d="M12 21s-8-7.333-8-12a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.667-8 12-8 12z"/>
-    <animate attributeName="fill" values="#E63946;#FF0000;#E63946" dur="2s" repeatCount="indefinite"/>
-  </svg>
+<!-- Fundo animado com emojis -->
+<div class="falling-emojis" aria-hidden="true">
+  <span>❤️</span>
+  <span>🌹</span>
+  <span>❤️</span>
+  <span>🌹</span>
+  <span>❤️</span>
+  <span>🌹</span>
+  <span>❤️</span>
+  <span>🌹</span>
+  <span>❤️</span>
+  <span>🌹</span>
+  <span>❤️</span>
+  <span>🌹</span>
+  <span>❤️</span>
+  <span>🌹</span>
+  <span>❤️</span>
+  <span>🌹</span>
+  <span>❤️</span>
+  <span>🌹</span>
+  <span>❤️</span>
+  <span>🌹</span>
 </div>
 
-<!-- CARTA INICIAL -->
-<div id="carta">
+<!-- 🎵 Música de fundo -->
+<audio id="musica" src="musica.mp3" autoplay loop muted></audio>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('musica');
+    function iniciarMusica() {
+      audio.muted = false;
+      audio.play().catch(() => {});
+      document.removeEventListener('click', iniciarMusica);
+    }
+    document.addEventListener('click', iniciarMusica);
+  });
+</script>
+
+<script>
+window.addEventListener('click', () => {
+  const audio = document.getElementById('musica');
+  if (audio && audio.paused) {
+    audio.play().catch(() => {});
+  }
+}, { once: true });
+</script>
+
+<!-- PRIMEIRA ABA -->
+<div class="container" id="carta">
   <h2>Para minha rainha e mãe dos meus filhos</h2>
   <p>
-    Amor da minha vida,<br /><br />
-    Há 1 ano e 1 mês, você entrou na minha vida como a rosa mais rara do jardim. Desde então, tudo floresceu.<br />
-    Obrigado por cada sorriso, cada abraço, cada detalhe.<br /><br />
-    Hoje, celebro não só nosso tempo juntos, mas tudo que ainda vamos viver.<br />
-    Eu te amo infinitamente! 💙<br /><br />
-    — Piculicutico
+    Amor da minha vida,<br><br>
+    Você entrou na minha vida como a rosa mais rara do jardim. Desde então, tudo floresceu.<br>
+    Obrigado por cada sorriso, cada abraço, cada detalhe.<br><br>
+    Hoje celebro não só nosso tempo juntos, mas tudo que ainda vamos viver.<br>
+    Eu te amo infinitamente! 💙<br><br>
+    — Piculicutico
   </p>
-  <button onclick="mostrarSite()">Abrir minha homenagem 🌹</button>
+  <button onclick="abrirPrimeira()">Abrir minha homenagem 🌹</button>
 </div>
 
-<!-- CONTEÚDO PRINCIPAL -->
-<div id="conteudo">
-  <h1>🌹 Feliz 1 ano e 1 mês amor da minha vida 🌹</h1>
+<!-- SEGUNDA ABA -->
+<div class="container" id="conteudo">
+  <h1>🌹 Feliz 1 ano e 1 mês amor da minha vida 🌹</h1>
   <p>Eu não podia deixar de te dar sua flor mesmo virtualmente. 💙</p>
+
   <div class="rosa-container">
     <div class="petala"></div>
     <div class="petala"></div>
@@ -254,32 +305,126 @@
   </div>
 
   <div class="fotos">
-    <img src="foto1.jpg" alt="Foto 1" />
-    <img src="foto2.jpg" alt="Foto 2" />
-    <img src="foto3.jpg" alt="Foto 3" />
-    <img src="foto4.jpg" alt="Foto 4" />
+    <img src="foto1.jpg" alt="Foto 1">
+    <img src="foto2.jpg" alt="Foto 2">
+    <img src="foto3.jpg" alt="Foto 3">
+    <img src="foto4.jpg" alt="Foto 4">
   </div>
+
+  <button onclick="abrirPuzzle()">Ver nova homenagem 💌</button>
 </div>
 
-<!-- TRILHA SONORA -->
-<audio id="musica" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio HTML.
-</audio>
+<!-- TERCEIRA ABA -->
+<div class="container" id="quebra">
+  <h1>🧩 Nossa lembrança em pedaços que se completam 🧩</h1>
+  <p>Monte nosso momento especial!</p>
+  <div id="puzzle"></div>
+</div>
+
+<!-- OVERLAY FINAL COM ROSA VERMELHA -->
+<div id="finalOverlay">
+  <h1>🎉 Feliz 1 ano desse pedido mais que perfeito que fizeram minhas pernas se tremerem meu sorriso se abrir e meu coração explodir amor da minha vida.Eu te amo infinitamente ❤️</h1>
+  <img src="rosa-nova.png" alt="Rosa vermelha" class="rosa-nova-final">
+</div>
 
 <script>
-function mostrarSite() {
-  document.getElementById("carta").style.display = "none";
-  const conteudo = document.getElementById("conteudo");
-  conteudo.style.display = "flex";
+function abrirPrimeira() {
+  document.getElementById('carta').style.display = 'none';
+  document.getElementById('conteudo').style.display = 'block';
+}
 
-  // Tocar música
-  const audio = document.getElementById("musica");
-  audio.play().catch(e => {
-    console.log("Erro ao tentar tocar audio:", e);
+function abrirPuzzle() {
+  document.getElementById('conteudo').style.display = 'none';
+  document.getElementById('quebra').style.display = 'block';
+  if (!puzzleConstruido) montarQuebraCabeca();
+}
+
+let puzzleConstruido = false;
+
+function montarQuebraCabeca() {
+  const grid = document.getElementById("puzzle");
+  const imgSrc = "foto3.jpg";
+  const rows = 3, cols = 4;
+  const pieceW = 320 / cols, pieceH = 240 / rows;
+  const canvas = document.createElement("canvas");
+  canvas.width = pieceW;
+  canvas.height = pieceH;
+  const ctx = canvas.getContext("2d");
+  const base = new Image();
+  base.src = imgSrc;
+
+  base.onload = () => {
+    const aspectRatio = base.width / base.height;
+    const targetRatio = 320 / 240;
+
+    let sx = 0, sy = 0, sw = base.width, sh = base.height;
+    if (aspectRatio > targetRatio) {
+      sw = base.height * targetRatio;
+      sx = (base.width - sw) / 2;
+    } else {
+      sh = base.width / targetRatio;
+      sy = (base.height - sh) / 2;
+    }
+
+    const pieces = [];
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        ctx.clearRect(0, 0, pieceW, pieceH);
+        ctx.drawImage(
+          base,
+          sx + x * (sw / cols), sy + y * (sh / rows),
+          sw / cols, sh / rows,
+          0, 0, pieceW, pieceH
+        );
+        pieces.push(canvas.toDataURL());
+      }
+    }
+
+    const order = [...pieces.keys()].sort(() => Math.random() - 0.5);
+    order.forEach((pieceId, gridIndex) => {
+      const el = document.createElement("img");
+      el.src = pieces[pieceId];
+      el.dataset.correct = gridIndex;
+      el.dataset.current = pieceId;
+      grid.appendChild(el);
+    });
+
+    ativarTroca();
+    puzzleConstruido = true;
+  };
+}
+
+function ativarTroca() {
+  let primeira = null;
+  document.querySelectorAll('#puzzle img').forEach(img => {
+    img.addEventListener('click', () => {
+      if (!primeira) {
+        primeira = img;
+        primeira.style.outline = '3px solid #0077cc';
+        return;
+      }
+      const segunda = img;
+      [primeira.src, segunda.src] = [segunda.src, primeira.src];
+      [primeira.dataset.current, segunda.dataset.current] = [segunda.dataset.current, primeira.dataset.current];
+      primeira.style.outline = 'none';
+      primeira = null;
+      verificarConcluido();
+    });
   });
 }
-</script>
 
+function verificarConcluido() {
+  const certo = [...document.querySelectorAll('#puzzle img')]
+    .every(el => el.dataset.current === el.dataset.correct);
+  if (certo) {
+    mostrarMensagemFinal();
+  }
+}
+
+function mostrarMensagemFinal() {
+  document.getElementById("finalOverlay").style.display = "block";
+}
+</script>
 </body>
 </html>
