@@ -316,9 +316,10 @@ window.addEventListener('click', () => {
 
 <!-- TERCEIRA ABA -->
 <div class="container" id="quebra">
-  <h1>🧩 Nossa lembrança em pedaços que se completam 🧩</h1>
-  <p>Monte nosso momento especial!</p>
-  <div id="puzzle"></div>
+  <h1>🧩 Nossa lembrança em pedaços que se completam 🧩</h1>
+  <p>Monte nosso momento especial!</p>
+  <div id="puzzle"></div>
+    <button onclick="abrirLinhaDoTempo()">Descobrir o próximo capítulo! ❤️ </button>
 </div>
 
 <!-- OVERLAY FINAL COM ROSA VERMELHA -->
@@ -424,6 +425,16 @@ function verificarConcluido() {
 
 function mostrarMensagemFinal() {
   document.getElementById("finalOverlay").style.display = "block";
+}
+function abrirLinhaDoTempo() {
+  window.open('linha-do-tempo.html', '_blank'); // Abre em uma nova aba
+}
+
+// ... (o restante do seu JavaScript existente, incluindo as funções do quebra-cabeça)
+
+function mostrarMensagemFinal() {
+  document.getElementById("finalOverlay").style.display = "block";
+  // Opcional: Você pode esconder o botão "Descobrir o próximo capítulo!" aqui se ele estiver visível antes.
 }
 </script>
 </body>
